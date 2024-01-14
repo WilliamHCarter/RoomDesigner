@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi4gnf1xi6uso"]
+[gd_scene load_steps=7 format=3 uid="uid://bi4gnf1xi6uso"]
 
 [ext_resource type="Texture2D" uid="uid://dduj5i3a7r264" path="res://kenney_roguelike-indoors/Tilesheets/roguelikeIndoor_transparent.png" id="1_bv1qs"]
+[ext_resource type="Texture2D" uid="uid://bej0k36uh38py" path="res://kenney_roguelike-indoors/Tilesheets/roguelikeSheet_transparent.png" id="2_iwc8n"]
+[ext_resource type="Script" path="res://Player.gd" id="2_qcqwc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j1qky"]
 texture = ExtResource("1_bv1qs")
@@ -533,6 +535,10 @@ texture = ExtResource("1_bv1qs")
 [sub_resource type="TileSet" id="TileSet_rmh5n"]
 sources/0 = SubResource("TileSetAtlasSource_j1qky")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oymsn"]
+atlas = ExtResource("2_iwc8n")
+region = Rect2(255, 136, 16, 16)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -541,3 +547,9 @@ format = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("2_qcqwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("AtlasTexture_oymsn")
