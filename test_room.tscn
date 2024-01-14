@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi4gnf1xi6uso"]
+[gd_scene load_steps=8 format=3 uid="uid://bi4gnf1xi6uso"]
 
 [ext_resource type="Texture2D" uid="uid://dduj5i3a7r264" path="res://kenney_roguelike-indoors/Tilesheets/roguelikeIndoor_transparent.png" id="1_bv1qs"]
 [ext_resource type="Texture2D" uid="uid://bej0k36uh38py" path="res://kenney_roguelike-indoors/Tilesheets/roguelikeSheet_transparent.png" id="2_iwc8n"]
-[ext_resource type="Script" path="res://Player.gd" id="2_qcqwc"]
+[ext_resource type="Script" path="res://Character_Movement.gd" id="3_21w58"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j1qky"]
 texture = ExtResource("1_bv1qs")
@@ -539,6 +539,10 @@ sources/0 = SubResource("TileSetAtlasSource_j1qky")
 atlas = ExtResource("2_iwc8n")
 region = Rect2(255, 136, 16, 16)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_af0ko"]
+radius = 6.0
+height = 18.0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -546,10 +550,12 @@ tile_set = SubResource("TileSet_rmh5n")
 format = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
 
-[node name="Player" type="Node2D" parent="."]
-script = ExtResource("2_qcqwc")
+[node name="Character" type="CharacterBody2D" parent="."]
+script = ExtResource("3_21w58")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Sprite2D" type="Sprite2D" parent="Character"]
 texture = SubResource("AtlasTexture_oymsn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
+shape = SubResource("CapsuleShape2D_af0ko")
