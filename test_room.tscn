@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi4gnf1xi6uso"]
+[gd_scene load_steps=10 format=3 uid="uid://bi4gnf1xi6uso"]
 
+[ext_resource type="Script" path="res://scripts/Character_Movement.gd" id="2_anfak"]
 [ext_resource type="Texture2D" uid="uid://bej0k36uh38py" path="res://kenney_roguelike-indoors/Tilesheets/roguelikeSheet_transparent.png" id="2_iwc8n"]
-[ext_resource type="Script" path="res://Character_Movement.gd" id="3_21w58"]
+[ext_resource type="Script" path="res://scripts/Dasher.gd" id="3_tntcr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j1qky"]
 texture = ExtResource("2_iwc8n")
@@ -5315,7 +5316,13 @@ region = Rect2(255, 136, 16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_poduh"]
 radius = 3.0
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7tkw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2kt8"]
+atlas = ExtResource("2_iwc8n")
+region = Rect2(357, 136, 16, 16)
+
+[node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rmh5n")
@@ -5338,7 +5345,7 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Character" type="CharacterBody2D" parent="."]
-script = ExtResource("3_21w58")
+script = ExtResource("2_anfak")
 
 [node name="Sprite2D" type="Sprite2D" parent="Character"]
 texture = SubResource("AtlasTexture_oymsn")
@@ -5354,3 +5361,13 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
+
+[node name="Dasher" type="CharacterBody2D" parent="."]
+position = Vector2(50, 75)
+script = ExtResource("3_tntcr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dasher"]
+shape = SubResource("CapsuleShape2D_f7tkw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dasher"]
+texture = SubResource("AtlasTexture_s2kt8")
