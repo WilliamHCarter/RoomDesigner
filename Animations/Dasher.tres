@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c6n2y27q2qfag"]
+
+[ext_resource type="Texture2D" uid="uid://dduj5i3a7r264" path="res://kenney_roguelike-indoors/Tilesheets/roguelikeIndoor_transparent.png" id="1_3x0sk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr68q"]
+atlas = ExtResource("1_3x0sk")
+region = Rect2(289, 85, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4fn8"]
+atlas = ExtResource("1_3x0sk")
+region = Rect2(323, 119, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibsaa"]
+atlas = ExtResource("1_3x0sk")
+region = Rect2(323, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smobc"]
+atlas = ExtResource("1_3x0sk")
+region = Rect2(306, 102, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr68q")
+}],
+"loop": true,
+"name": &"Dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4fn8")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibsaa")
+}],
+"loop": true,
+"name": &"Recover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smobc")
+}],
+"loop": true,
+"name": &"Telegraph",
+"speed": 5.0
+}]
